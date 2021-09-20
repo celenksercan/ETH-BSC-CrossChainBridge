@@ -47,3 +47,11 @@ function mint(
     uint nonce,
     bytes calldata signature
   )
+
+external {
+    bytes32 message = prefixed(keccak256(abi.encodePacked(
+      from, 
+      to, 
+      amount,
+      nonce
+    )));
