@@ -93,3 +93,14 @@ function recoverSigner(bytes32 message, bytes memory sig)
   
     return ecrecover(message, v, r, s);
   }
+
+function splitSignature(bytes memory sig)
+    internal
+    pure
+    returns (uint8, bytes32, bytes32)
+  {
+    require(sig.length == 65);
+  
+    bytes32 r;
+    bytes32 s;
+    uint8 v;
