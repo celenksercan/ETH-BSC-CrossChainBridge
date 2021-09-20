@@ -60,3 +60,13 @@ require(recoverSigner(message, signature) == from , 'wrong signature');
     require(processedNonces[from][nonce] == false, 'transfer already processed');
     processedNonces[from][nonce] = true;
     token.mint(to, amount);
+
+emit Transfer(
+      from,
+      to,
+      amount,
+      block.timestamp,
+      nonce,
+      signature,
+      Step.Mint
+    );
