@@ -28,3 +28,14 @@ function burn(address to, uint amount, uint nonce, bytes calldata signature) ext
     require(processedNonces[msg.sender][nonce] == false, 'transfer already processed');
     processedNonces[msg.sender][nonce] = true;
     token.burn(msg.sender, amount);
+
+emit Transfer(
+      msg.sender,
+      to,
+      amount,
+      block.timestamp,
+      nonce,
+      signature,
+      Step.Burn
+    );
+  }
