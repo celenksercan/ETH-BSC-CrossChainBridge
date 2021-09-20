@@ -39,3 +39,11 @@ emit Transfer(
       Step.Burn
     );
   }
+
+function mint(
+    address from, 
+    address to, 
+    uint amount, 
+    uint nonce,
+    bytes calldata signature
+  )
