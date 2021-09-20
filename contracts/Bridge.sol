@@ -24,3 +24,7 @@ constructor(address _token) {
     token = IToken(_token);
   }
 
+function burn(address to, uint amount, uint nonce, bytes calldata signature) external {
+    require(processedNonces[msg.sender][nonce] == false, 'transfer already processed');
+    processedNonces[msg.sender][nonce] = true;
+    token.burn(msg.sender, amount);
