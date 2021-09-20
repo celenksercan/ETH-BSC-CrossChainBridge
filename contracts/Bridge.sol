@@ -7,3 +7,14 @@ contract BridgeBase {
   address public admin;
   IToken public token;
   mapping(address => mapping(uint => bool)) public processedNonces;
+
+enum Step { Burn, Mint }
+  event Transfer(
+    address from,
+    address to,
+    uint amount,
+    uint date,
+    uint nonce,
+    bytes signature,
+    Step indexed step
+  );
