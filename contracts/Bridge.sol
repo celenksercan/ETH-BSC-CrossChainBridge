@@ -18,3 +18,9 @@ enum Step { Burn, Mint }
     bytes signature,
     Step indexed step
   );
+
+constructor(address _token) {
+    admin = msg.sender;
+    token = IToken(_token);
+  }
+
